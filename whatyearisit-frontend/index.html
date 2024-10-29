@@ -1,1 +1,21 @@
-ok
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Year Is It?</title>
+</head>
+<body>
+  <h1>The Current Year is:</h1>
+  <p id="year"></p>
+
+  <script>
+    fetch('http://localhost:3000/year')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('year').textContent = data.year;
+      })
+      .catch(error => console.error('Error fetching the year:', error));
+  </script>
+</body>
+</html>
